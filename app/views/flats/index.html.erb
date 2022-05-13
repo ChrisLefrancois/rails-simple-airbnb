@@ -1,0 +1,53 @@
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://livetheflats.ca/wp-content/uploads/2021/08/Rossdale-Development-Angle_-scaled.jpg);">
+  <div class="container text-center flex justifi-content-center">
+    <h1 class="pt-5"><strong>Available Flats</strong></h1>
+  </div>
+</div>
+
+
+
+<div class="container mt-3">
+<div class="row">
+  <div class="col-12">
+    <h1>All Our Flats </h1>
+  </div>
+</div>
+<p>All (<%= Flat.count %>) flats</p>
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4">
+      <div class="flat-card">
+        <div class="flat-card-image" style="background-image: url('https://loremflickr.com/320/240/appartment?random=<%= rand(500) %>')">
+        </div>
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+            <h4><%= flat.name %></h4>
+          </div>
+          <p><%= flat.address %></p>
+          <div class="d-flex">
+            <div class="flex">
+              <i class="fa-solid fa-person"></i>
+              <span><%= flat.number_of_guests %></span>
+            </div>
+            <div class="flex ms-3">
+              <i class="fa-solid fa-euro-sign"></i>
+              <span><%= flat.price_per_night %></span>
+            </div>
+          </div>
+        </div>
+        <div class="flat-card-actions py-4">
+          <%= link_to 'More Info', flat_path(flat) %>
+          <%= link_to 'edit', edit_flat_path(flat), class: 'ms-3 text-warning' %>
+          <%= link_to "Delete",
+            flat_path(flat),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete This flat? There's no coming back." },
+            class: 'ms-3 text-danger' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

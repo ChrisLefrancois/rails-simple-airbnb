@@ -8,9 +8,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/1b7f7cd915.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+      <div class="container-fluid">
+        <h2>Simple Airbnb</h2>
+        <div class="d-flex">
+          <h2 class="mx-3"><%= link_to "Add Flat", new_flat_path %></h2>
+          <h2><%= link_to 'All flats', flats_path %></h2>
+        </div>
+    </nav>
+
+      <%= yield %>
   </body>
 </html>

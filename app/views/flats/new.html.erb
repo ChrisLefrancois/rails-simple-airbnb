@@ -1,0 +1,17 @@
+
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://livetheflats.ca/wp-content/uploads/2021/08/Rossdale-Development-Angle_-scaled.jpg);">
+  <div class="container text-center flex justifi-content-center">
+    <h1 class="pt-5"><strong>Add a Flat</strong></h1>
+  </div>
+</div>
+
+<div class="container">
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :price_per_night %>
+    <%= f.input :description %>
+    <%= f.input :number_of_guests %>
+    <%= f.submit "Submit flat", class: "btn btn-primary" %>
+  <% end %>
+</div>
